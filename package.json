@@ -2,10 +2,10 @@
   "name": "turutalocalbackend",
   "version": "1.0.0",
   "description": "API rest para deep fashion",
-  "main": "index.js",
+  "main": "index.mjs",
   "type":"module",
   "scripts": {
-    "dev": "node --watch ./index.js"
+    "dev": "node --watch ./src/index.mjs"
   },
   "keywords": [
     "express",
