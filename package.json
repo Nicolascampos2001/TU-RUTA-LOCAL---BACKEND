@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "API rest para deep fashion",
   "main": "index.mjs",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "node --watch ./src/index.mjs"
   },
@@ -17,6 +17,7 @@
   "author": "Nicolas David Campos Segura <nicolascampos1621@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
   }
 }
