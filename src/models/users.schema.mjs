@@ -16,11 +16,19 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [ true, 'La contraseña es obligatoria' ]
+        trim: true,
+        min: [ 6, 'La contraseña debe tener mínimo 6 caracteres' ],
+        max: [ 12, 'La contraseña debe tener máximo 12 caracteres' ],
+        required: [ true, 'La contraseña es obligatoria' ],
+    },  
+    movil: {
+        type: Number,
+        trim: true,
     },
     role: {
         type: String,
-        default: 'registered'
+        enum: [ 'administrador', 'comercial', 'cliente'],
+        default: 'cliente'
     }
 }, {
     timestamps: true, // Agrega las propiedades createdAt
@@ -29,9 +37,9 @@ const userSchema = new mongoose.Schema({
 
 
 //define el schema a una propiedad especifica
-const userModel = mongoose.Model(
+const userModel = mongoose.model(
     'users',           //Nombre de la colección a la que voy a asociar
     userSchema         //La estructura de datos a la que lo vamosa vincular
 );
 
-export  default userModel   // exponemos el model para ser usado por cualquier otro archivo en mi aplicación
+export default userModel   // exponemos el model para ser usado por cualquier otro archivo en mi aplicación

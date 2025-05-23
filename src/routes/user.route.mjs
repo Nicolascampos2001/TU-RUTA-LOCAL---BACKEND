@@ -1,22 +1,11 @@
-// file routes: definir los endpoints de una entidad
-import { Router } from 'express';       //importando el router de express
+import express from 'express' //Importar la dependencia
 import { createUser } from '../controllers/users.controllers.mjs';
-const router = Router();                //invocando el router (preparandolo para defirnir rutas)
 
-//define las rutas de acceso 
-router.get( '/api/users', (req, res) => {
-    res.send( 'obtiene todos los usuarios' );
-} );
-router.post( '/api/users', createUser )
+const router = express.Router(); //invocando el router de Express
 
-router.patch( '/api/users', (req, res) =>{
-    res.send('actualizacion parcial de un usuario');
-})
-router.put( '/api/users', (req, res) => {
-    res.send( 'actualizacion total de un usuario');
-})
-router.delete( '/api/users', (req,res) => {
-    res.send( 'elimina un usuario' );
-})
+//Definir las rutas para la entidad Product
 
-export default router;                  //exportando todas las rutas de esta entidad para ser usadas en cualquier parte de a aplicacion
+router.post( '/api/users', createUser );
+ 
+//Exponer el router de este archivo para ser usado por otros en la app
+export default router; 
