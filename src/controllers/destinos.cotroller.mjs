@@ -7,7 +7,7 @@ const createDestino = async (req, res) =>{
         const registereddestino = await destinosModel.create( imputData );
 
         console.log( registereddestino );                   // imprime en la consola 
-        res.send( registereddestino );                      // enviando la respuesta al cliente 
+        res.status(201).json( registereddestino );                      // enviando la respuesta al cliente 
     }
 
     catch (error) {     // catch: captura e, erro producido por la excepcion
@@ -16,6 +16,21 @@ const createDestino = async (req, res) =>{
     }
 }
 
+const getAllProducsts = async (req, res) => {
+    try {
+        const data = await destinosModel.find({});
+        res.json( data );
+    } 
+    catch (error) {
+        const data = await destinosModel.find({});
+        res.json({ msg: 'error: no se puede obtener el listado de destinos'});
+    }
+    
+}
+
+
+//exponer las funcionalidades para ser usadas por otros archivos 
 export {
-    createDestino
+    createDestino,
+    getAllProducsts
 }
