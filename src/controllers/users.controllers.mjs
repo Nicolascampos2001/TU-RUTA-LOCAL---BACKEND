@@ -21,8 +21,23 @@ const createUser = async ( req, res ) => {
 
 }
 
+const getAllusers = async ( req, res ) => { 
+
+    try {
+        const data = await userModel.find ({});
+    res.json( data );
+    }
+
+    catch ( error ) {
+        console.error ( error );
+        res,json({ msg: 'Error: no se pudo obtener el listado de productos'})
+    }
+    
+}
+
 
 
 export {
-    createUser
+    createUser,
+    getAllusers
 }
