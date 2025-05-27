@@ -42,7 +42,24 @@ const getDestinoByid = async (req, res ) =>{
         console.error( error );
         res.json({ msg: 'error: no se pudo encontrar el destino'})
     }
-       // el nombre final dependera del nombre del parametro de la ruta
+}
+
+const removeDestinoByid = async (req, res) => {
+    const destinoId = req.params.id;
+
+    try {
+        const data = await destinosModel.findByIdAndDelete(destinoId)
+
+        if( data == null ){
+            return res.json({ msg: 'el destino no se encuentra registrado'});
+        }
+
+    res.json( data );
+    } 
+    catch (error) {
+        console.error( error );
+        res.json({ msg: 'error: no pudo eliminar el destino'})
+    }
     
 }
 
@@ -50,5 +67,6 @@ const getDestinoByid = async (req, res ) =>{
 export {
     createDestino,
     getAllDestino,
-    getDestinoByid
+    getDestinoByid,
+    removeDestinoByid
 }
