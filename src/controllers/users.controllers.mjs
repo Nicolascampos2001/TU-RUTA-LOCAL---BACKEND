@@ -40,6 +40,7 @@ const getUserById = async ( req, res) => {
     try {
 
         const data = await userModel.findById( userId );
+        // const data = await userModel.findOne( userId );
         //Verifica si el producto no existe y lanza el respectivo mensaje al cliente
         if( data == null ) {
             return res.json( { msg: 'El usuario no se encuentra registrado' });
@@ -58,10 +59,30 @@ const getUserById = async ( req, res) => {
 
 }
 
+const removeProductById = async ( req, res ) => {
+    const userId = req.params.id;
+   
+
+    try {
+        const data = await userModel.findByIdAndDelete( userId );
+         if( ! data ) {
+            return res.json( { msg: 'El usuario no existe' });
+        }
+
+        res.json( data );
+    }
+
+    catch ( error ) {
+        console.error( error );
+        res.json({ msg: 'Error no pudo eliminar el usuario'})
+        
+    }
+}
 
 
 export {
     createUser,
     getAllusers,
-    getUserById
+    getUserById,
+    removeProductById
 }
