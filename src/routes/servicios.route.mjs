@@ -1,7 +1,7 @@
 
 
 import express from 'express';
-import { crearServicio, getAllServicios } from '../controllers/product.controller.mjs';
+import { crearServicio, getAllServicios, getServiciosById } from '../controllers/product.controller.mjs';
 
 const router = express.Router();
 
@@ -9,5 +9,5 @@ const router = express.Router();
 
 router.post('/api/servicios', crearServicio);
 router.get('/api/servicios', getAllServicios);
-
+router.get('/api/servicios/:id', getServiciosById)// parametrizar la ruta; cremaos una especie de variable que se llama id 
 export default router;

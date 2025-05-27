@@ -30,7 +30,30 @@ const getAllServicios = async (req, res) => {
 
 }
 
+const getServiciosById = async (req, res) => {
+    const serviciosId = req.params.id; //el nombre final dependera del nombre que le pongamos a la variable en la ruta
+
+    try{
+            const data = await servicioModel.findById(serviciosId);
+        //verifica si el servicio existe
+        // si no existe, retorna un mensaje de error
+            if ( data == null) {
+                return res.json({msg:'No se encontro el servicio con ese id'});
+            }
+
+    res.json(data);
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({msg:'Error: al obtener el servicio por id'});
+
+    }
+
+
+}
+
 export{
     crearServicio,
-    getAllServicios
+    getAllServicios,
+    getServiciosById
 }
