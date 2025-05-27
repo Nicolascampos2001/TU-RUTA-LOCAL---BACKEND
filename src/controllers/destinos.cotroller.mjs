@@ -16,7 +16,7 @@ const createDestino = async (req, res) =>{
     }
 }
 
-const getAllProducsts = async (req, res) => {
+const getAllDestino = async (req, res) => {
     try {
         const data = await destinosModel.find({});
         res.json( data );
@@ -28,9 +28,27 @@ const getAllProducsts = async (req, res) => {
     
 }
 
+const getDestinoByid = async (req, res ) =>{
+    const destinosId = req.params.id;
+    try {
+        const data = await destinosModel.findById(destinosId);
+        
+        if( data == null ){
+            return res.json({ msg: 'el destino no se encuentra registrado'});
+        }
+        res.json(data);
+    } 
+    catch (error) {
+        console.error( error );
+        res.json({ msg: 'error: no se pudo encontrar el destino'})
+    }
+       // el nombre final dependera del nombre del parametro de la ruta
+    
+}
 
 //exponer las funcionalidades para ser usadas por otros archivos 
 export {
     createDestino,
-    getAllProducsts
+    getAllDestino,
+    getDestinoByid
 }

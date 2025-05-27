@@ -1,11 +1,12 @@
 // file routes: definir los endpoints de una entidad
 import { Router } from 'express';       //importando el router de express
-import { createDestino, getAllProducsts } from '../controllers/destinos.cotroller.mjs';
+import { createDestino, getAllDestino, getDestinoByid } from '../controllers/destinos.cotroller.mjs';
 const router = Router();                //invocando el router (preparandolo para defirnir rutas)
 
 //define las rutas de acceso 
 router.post( '/api/destinos', createDestino );
-router.get( '/api/destinos', getAllProducsts);
+router.get( '/api/destinos', getAllDestino);
+router.get( '/api/destinos/:id', getDestinoByid );  //  :id (parametrizar la ruta: creamos una especie de variable)
 
 router.patch( '/api/destinos', (req, res) =>{
     res.send('actualizacion parcial de un destino');
