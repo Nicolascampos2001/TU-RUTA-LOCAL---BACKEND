@@ -52,8 +52,28 @@ const getServiciosById = async (req, res) => {
 
 }
 
+const deleteServicio = async (req, res) => {
+    const serviciosId = req.params.id;
+
+    try {
+        const data = await servicioModel.findByIdAndDelete(serviciosId);
+        
+        if (data == null) {
+            return res.json({msg:'No se encontro el servicio con ese id'});
+            
+        }
+        res.json(data);
+    }
+    catch (error) {  
+        console.error(error);
+        res.status(500).json({msg:'Error: al eliminar el servicio'});
+    } 
+
+}
+
 export{
     crearServicio,
     getAllServicios,
-    getServiciosById
+    getServiciosById,
+    deleteServicio
 }
