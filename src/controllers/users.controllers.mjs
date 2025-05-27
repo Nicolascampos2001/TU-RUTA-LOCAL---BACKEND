@@ -79,10 +79,26 @@ const removeProductById = async ( req, res ) => {
     }
 }
 
+const updateUserById = async ( req, res ) => {
+    const userId = req.params.id;
+    const inputData = req.body
+
+    try {
+        const data = await userModel.findByIdAndUpdate( userId, inputData, { new:true } );
+        res.json( data );
+    }
+
+    catch {
+            console.error( error );
+            res.json({ msg: 'Error: No se pudo actualizar el usuario' });
+    }
+}
+
 
 export {
     createUser,
     getAllusers,
     getUserById,
-    removeProductById
+    removeProductById,
+    updateUserById
 }
