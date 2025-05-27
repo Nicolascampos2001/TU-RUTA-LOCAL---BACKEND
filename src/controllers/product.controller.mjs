@@ -71,9 +71,31 @@ const deleteServicio = async (req, res) => {
 
 }
 
+const patchServicio = async (req, res) => {
+    const serviciosId = req.params.id; // obtenemos el id de la parametrizacion de la ruta 
+    const inputData = req.body;  // obtenemos el body de la peticion
+
+
+try { 
+    const data = await servicioModel.findByIdAndUpdate(serviciosId,inputData, {new: true} );
+
+res.json(data);
+
+
+} catch (error) {
+    console.error(error);
+    res.status(500).json({msg:'Error: al actualizar el servicio'});
+}
+
+
+}
+
+
+
 export{
     crearServicio,
     getAllServicios,
     getServiciosById,
-    deleteServicio
+    deleteServicio,
+    patchServicio
 }
