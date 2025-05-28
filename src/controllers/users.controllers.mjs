@@ -95,7 +95,7 @@ const updateUserById = async ( req, res ) => {
 }
 
 
-export {
+export { 
     createUser,
     getAllusers,
     getUserById,
