@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 // define la estructura del documento que se va a registrar
 const destinosSchema = new mongoose.Schema({
-    Name: {
+    name: {
         type: String,
         trim: true,
         require: [ true, 'el nombre del destino es obligatorio' ]

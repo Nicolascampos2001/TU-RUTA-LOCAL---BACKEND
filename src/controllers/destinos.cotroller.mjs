@@ -63,10 +63,28 @@ const removeDestinoByid = async (req, res) => {
     
 }
 
+const updateProductById = (req, res) => {
+    const destinoId = req.params.id;
+    const inputData = req.body;
+    
+    try {
+        const data = destinosModel.findByIdAndUpdate( destinoId, inputData );
+
+        res.json( data );
+    } 
+    catch (error) {
+        console.error(error);
+        res.json({ msg: 'Error: no se pudo actualizar el destino'})
+    }
+
+    
+}
+
 //exponer las funcionalidades para ser usadas por otros archivos 
 export {
     createDestino,
     getAllDestino,
     getDestinoByid,
-    removeDestinoByid
+    removeDestinoByid,
+    updateProductById
 }
