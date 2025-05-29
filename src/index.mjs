@@ -9,6 +9,8 @@ import dbconnect from './config/mongo.config.mjs';    ///importamos la conexion 
 const app = express();
 
 //invocar la configuracion de la conexion a la base de datos
+app.use(express.json());
+
 dbconnect();
 
 app.use(resenas);
