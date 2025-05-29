@@ -1,6 +1,7 @@
 // paso 1: importamos las dependendias (librerias, paquetes)
 // const express = require( 'express' );               //importacion de dependencia usando commonJS
 import express from 'express';
+import products from './routes/product.route.mjs';
 import resenas from './routes/resenas.route.mjs';
 import dbconnect from './config/mongo.config.mjs';    ///importamos la conexion a al base de datos 
 
