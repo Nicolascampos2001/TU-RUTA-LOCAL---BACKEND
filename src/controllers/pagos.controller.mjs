@@ -49,9 +49,27 @@ const obtenerPagoPorId = async (req, res) => {
     }
 }
 
+const borrarPagoPorId = async (req, res) => {
+    const { id } = req.params;
+    try {
+        
+        const data = await pagosModel.findByIdAndDelete(id);
+        if (!data) {
+            return res.status(404).json({ msg: 'Pago no encontrado' });
+        }
+        res.json({ msg: 'Pago eliminado correctamente' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: 'Error al eliminar el pago' });
+    }
+}
+
+
 export{
     crearPago,
     obtenerPagos,
-    obtenerPagoPorId
+    obtenerPagoPorId,
+    borrarPagoPorId
+
 
 }
