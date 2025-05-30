@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 // / Definir la estructura de datos (nuestro documento) */
 const userSchema = new mongoose.Schema({
-
+    email: {
+        type: String,
+        required: [ true, 'El correo del usuario es obligatorio' ],
+        unique: [ true, 'El correo ya esta registrado. Solo puede registrarse con un unico correo' ]
+    },
     // Definir propiedades, atributos o campos (Documento)
     name:{
         type: String,
