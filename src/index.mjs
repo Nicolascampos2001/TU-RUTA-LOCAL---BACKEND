@@ -2,6 +2,7 @@
 // const express = require( 'express' );               //importacion de dependencia usando commonJS
 import express from 'express';
 import users from './routes/user.route.mjs'
+import auth from './routes/auth.router.mjs'; //importamos las rutas de auth
 
 import dbconnect from './config/mongo.config.mjs';    ///importamos la conexion a al base de datos 
 
@@ -13,7 +14,8 @@ dbconnect();
 
 app.use( express.json() );
 
-app.use( users )
+app.use( users ) //vincula las rutas de users 
+app.use( auth ); //vincula las rutas de auth
 
 
 app.listen( 3000, () =>{

@@ -1,25 +1,47 @@
+import bcrypt from "bcrypt";
+
 import userModel from "../models/users.schema.mjs";
+
+
 
 const createUser = async ( req, res ) => {
     const inputData = req.body;
 
     try {
+        // Paso 1: Verificar si el usuario existe
+        const userFound = await userModel.findOne({ 
+            username: inputData.username,
+            email: inputData.email
+        });
 
-    const registeredUser = await userModel.create( inputData ); 
+        if( userFound ) {
+            return res.status( 404 ).json({ msg: 'No pudo registrarse por que, el usuario ya existe.' });
+        }
 
-    console.log( registeredUser )
-    res.status ( 201 ).json( registeredUser );
+        // Paso 2: Encriptar la contrasena
+        const salt = bcrypt.genSaltSync();
+        console.log( 'salt: ', salt );    
 
-    }
+        const hashPassword = bcrypt.hashSync(
+            inputData.password,         // PASSWORD_ORIGINAL
+            salt
+        );
+        console.log( 'hashPassword: ', hashPassword );
+        inputData.password = hashPassword; // Reemplazar la contraseña original por la encriptada
 
+        // Paso 3: Registrar el usuario
+        const data = await userModel.create( inputData );
+
+        // Paso 4: Responder al cliente que se registro existosamente
+        res.status( 201 ).json( data );
+    } 
     catch ( error ) {
-
         console.error( error );
-        res.status( 500 ).json( { msg: 'Error no se pudo registrar el usuario' });
-
+        res.status( 500 ).json({ msg: 'Error: No se pudo crear el usuario' });
     }
 
 }
+
 
 const getAllusers = async ( req, res ) => { 
 

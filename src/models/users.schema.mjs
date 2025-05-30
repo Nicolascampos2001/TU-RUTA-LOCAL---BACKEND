@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
 
     // Definir propiedades, atributos o campos (Documento)
-    name: {
+    name:{
         type: String,
         required: [ true, 'El nombre del usuario es obligatorio' ]
     },
@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         trim: true,
-        min: [ 6, 'La contraseña debe tener mínimo 6 caracteres' ],
-        max: [ 12, 'La contraseña debe tener máximo 12 caracteres' ],
+        // min: [ 6, 'La contraseña debe tener mínimo 6 caracteres' ],
+        // max: [ 12, 'La contraseña debe tener máximo 12 caracteres' ],
         required: [ true, 'La contraseña es obligatoria' ],
     },  
     movil: {
