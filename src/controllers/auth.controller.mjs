@@ -25,7 +25,7 @@ const loginUser = async (req, res) => {
     const payLoad ={
     name: userFound.name,
     email: userFound.email, 
-    role: userFound.role,
+    role: userFound.role
     };
 
     const jwt_secret = 'nashe'; //se recomienda guardar en un archivo .env
@@ -43,7 +43,7 @@ const loginUser = async (req, res) => {
     //paso 6: respuesta al cliente
     res.json({
         token: token,
-        user:userFound
+        user: objsUser
     });
 }
 
