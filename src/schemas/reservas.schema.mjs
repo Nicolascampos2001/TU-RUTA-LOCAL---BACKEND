@@ -1,0 +1,39 @@
+import mongoose from "mongoose";
+
+//Define la estructura de datos del documento
+
+const reservasSchema = new mongoose.Schema({
+
+  usuario: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  fechaReservada:{
+    type: String,
+    required: false //TODO: revisar porque no funciona cuando está en true
+  },
+  personas: {
+    type: Number,
+    default: 1,
+    min: [1, 'Debe haber al menos una persona'],
+    required: true
+  },
+  estado: {
+    type: String,
+    enum: ['pendiente', 'confirmada', 'cancelada'],
+    default: 'pendiente'
+  }
+} , {
+    timestamps: true, 
+    versionKey: false,
+});
+
+//Define el modelo y vincula la estructura de datos a una colección
+
+const reservasModel = mongoose.model(
+    'reservas',
+    reservasSchema
+)
+
+export default reservasModel; 
