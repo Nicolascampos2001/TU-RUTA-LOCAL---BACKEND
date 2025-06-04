@@ -1,5 +1,6 @@
 // paso 1: importamos las dependendias (librerias, paquetes)
 // const express = require( 'express' );               //importacion de dependencia usando commonJS
+
 import express from 'express'
 
 
@@ -9,7 +10,11 @@ import dbconnect from './config/mongo.config.mjs';
 
 import users from './routes/user.route.mjs'
 
-  ///importamos la conexion a al base de datos 
+  ///importamos la conexion a al base de datos             //REPETICION
+
+
+
+import servicios from './routes/servicios.route.mjs';
 
 
 const app = express();
@@ -25,6 +30,8 @@ app.use(pagos);
 app.use( users )
 
 
+
+app.use( servicios );
 
 app.listen( 3000, () =>{
     console.log( 'servidor corriendo en http://localhost:3000')
