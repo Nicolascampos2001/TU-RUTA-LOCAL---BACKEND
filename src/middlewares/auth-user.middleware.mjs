@@ -1,5 +1,5 @@
 
-import { verifyToken } from '../helpers/jwt.helpar.mjs';
+import { verifyToken } from '../helpers/jwt.helper.mjs';
 
 const authUser = (req, res, next) => {
     const token = req.header('X-token');
@@ -29,3 +29,4 @@ const authUser = (req, res, next) => {
 export{
     authUser
 }
+

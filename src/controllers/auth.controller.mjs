@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 
 import userModel from "../models/users.schema.mjs";
-import { generateToken } from "../helpers/jwt.helpar.mjs";
+import { generateToken } from "../helpers/jwt.helper.mjs";
 
 const loginUser = async (req, res) => {
     //paso 1: obetener los datos del body 
