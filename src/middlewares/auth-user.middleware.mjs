@@ -1,4 +1,5 @@
-import jwt from 'jsonwebtoken';
+
+import { verifyToken } from '../helpers/jwt.helpar.mjs';
 
 const authUser = (req, res, next) => {
     const token = req.header('X-token');
@@ -11,8 +12,7 @@ const authUser = (req, res, next) => {
     const jwt_secret = 'nashe';
 
     
-    const payLoad = jwt.verify(token, jwt_secret)
-
+    const payLoad = verifyToken(token); //verifica el token y obtiene el payload
     delete payLoad.iat; //elimina la propiedad iat del payload
     delete payLoad.exp; //elimina la propiedad exp del payload
     

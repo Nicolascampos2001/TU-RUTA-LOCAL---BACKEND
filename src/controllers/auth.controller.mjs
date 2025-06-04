@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 
 
 import userModel from "../models/users.schema.mjs";
+import { generateToken } from "../helpers/jwt.helpar.mjs";
 
 const loginUser = async (req, res) => {
     //paso 1: obetener los datos del body 
@@ -28,12 +29,7 @@ const loginUser = async (req, res) => {
     role: userFound.role
     };
 
-    const jwt_secret = 'nashe'; //se recomienda guardar en un archivo .env
-
-    const token = jwt.sign(payLoad, //carga util
-        jwt_secret,   //palabra secreta
-        {expiresIn:'1h'}           //opciones de configuración
-    );
+    const token = generateToken(payLoad);
     //paso 5: eliminar algunas propiedades que traen datos sensibles
     const objsUser = userFound.toObject();
 
@@ -52,12 +48,7 @@ const loginUser = async (req, res) => {
 const reNewToken = async (req, res ) =>{
     const payLoad = req.authUser; //obtiene el payload del token
 
-const jwt_secret = 'nashe';
-
-const token = jwt.sign(payLoad, //carga util
-        jwt_secret,   //palabra secreta
-        {expiresIn:'1h'}           //opciones de configuración
-    );
+const token = generateToken(payLoad); 
 
     res.json({msg:token});
 
