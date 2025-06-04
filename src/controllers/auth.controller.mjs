@@ -48,6 +48,22 @@ const loginUser = async (req, res) => {
 }
 
 
+
+const reNewToken = async (req, res ) =>{
+    const payLoad = req.authUser; //obtiene el payload del token
+
+const jwt_secret = 'nashe';
+
+const token = jwt.sign(payLoad, //carga util
+        jwt_secret,   //palabra secreta
+        {expiresIn:'1h'}           //opciones de configuración
+    );
+
+    res.json({msg:token});
+
+}
+
 export { 
-    loginUser
+    loginUser,
+    reNewToken
 }
