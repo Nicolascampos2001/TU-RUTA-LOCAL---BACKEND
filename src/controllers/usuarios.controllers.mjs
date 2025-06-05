@@ -1,4 +1,4 @@
-import userModel from "../models/users.schema.mjs";
+import userModel from '../schemas/usuarios.schema.mjs';
 
 const createUser = async ( req, res ) => {
     const inputData = req.body;

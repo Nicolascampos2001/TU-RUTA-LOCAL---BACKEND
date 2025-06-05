@@ -1,5 +1,5 @@
 import express from 'express' //Importar la dependencia
-import { createUser, getAllusers, getUserById, removeProductById, updateUserById } from '../controllers/users.controllers.mjs';
+import { createUser, getAllusers, getUserById, removeProductById, updateUserById } from '../controllers/usuarios.controllers.mjs';
 
 const router = express.Router(); //invocando el router de Express
 
