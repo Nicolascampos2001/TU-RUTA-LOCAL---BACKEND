@@ -13,6 +13,7 @@ const resenaSchema = new mongoose.Schema({
         required: true,
         default: 1
     }
+    
 }, {
     timestamps: true,
     versionKey: false

@@ -5,9 +5,14 @@ import mongoose from "mongoose";
 const reservasSchema = new mongoose.Schema({
 
   usuario: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId, 
     required: true,
-    unique: true,
+    ref:'users'
+  },
+  servicio: {
+    type: mongoose.Schema.Types.ObjectId, 
+    required: true,
+    ref:'servicios'
   },
   fechaReservada:{
     type: String,

@@ -8,6 +8,7 @@ const serviciosSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'el nombre es obligatorio'],
+        
     },
     description: {
         type: String,
@@ -34,13 +35,22 @@ const serviciosSchema = new mongoose.Schema({
         enum: ['disponible', 'no-disponible', ],
         default: 'disponible',
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
+        ref: 'users', //nombre del modelo al que hace referencia
+        required: true,
+    },
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
+        ref: 'resenas', //nombre del modelo al que hace referencia
+    }],
 }, {
     timestamps: true,
     versionKey: false,      // elimina la propiedad __v
 });
 
 //definir el modelo
-const servicioModel  = mongoose.model('Servicios', serviciosSchema);
+const servicioModel  = mongoose.model('servicios', serviciosSchema);
 
 //exportar el modelo
 export default servicioModel;
