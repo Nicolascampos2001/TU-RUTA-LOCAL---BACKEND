@@ -61,11 +61,10 @@ const getUserById = async ( req, res) => {
 
 const removeProductById = async ( req, res ) => {
     const userId = req.params.id;
-   
 
     try {
         const data = await userModel.findByIdAndDelete( userId );
-         if( ! data ) {
+        if( ! data ) {
             return res.json( { msg: 'El usuario no existe' });
         }
 

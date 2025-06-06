@@ -10,7 +10,7 @@ import pagos from './routes/pagos.routes.mjs';
 import reservas from './routes/reservas.route.mjs';  
 import servicios from './routes/servicios.route.mjs';
 
-
+import auth from './routes/auth.router.mjs'; //importamos las rutas de auth
 
 import dbconnect from './config/mongo.config.mjs';    ///importamos la conexion a al base de datos 
 
@@ -28,6 +28,8 @@ app.use(usuarios);
 app.use(pagos); 
 app.use(reservas);
 app.use(servicios);
+app.use( auth ); //vincula las rutas de auth
+
 
 app.listen( 3000, () =>{
     console.log( 'servidor corriendo en http://localhost:3000')

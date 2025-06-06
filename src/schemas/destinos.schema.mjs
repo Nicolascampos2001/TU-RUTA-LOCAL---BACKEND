@@ -13,12 +13,13 @@ const destinosSchema = new mongoose.Schema({
         type: Number,
         enum: [1, 2, 3, 4, 5]
     },
-    services: [{
+    services: {
         type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
         ref: 'servicios', //nombre del modelo al que hace referencia
-    }],
+    },
     
-},{
+    },
+    {
     timestamps: true,
     versionKey: false                         // crea dos camos 'createdA', 'updatedAt
 });
