@@ -31,8 +31,8 @@ const getAllDestino = async (req, res) => {
 const getDestinoByid = async (req, res ) =>{
     const destinosId = req.params.id;
     try {
-        const data = await destinosModel.findById(destinosId);
-        
+        const data = await destinosModel.findOne({_id:destinosId}).populate('services');
+        console.log(destinosId);    
         if( data == null ){
             return res.json({ msg: 'el destino no se encuentra registrado'});
         }
