@@ -1,7 +1,7 @@
 // paso 1: importamos las dependendias (librerias, paquetes)
 // const express = require( 'express' );               //importacion de dependencia usando commonJS
 import express from 'express';
-
+const PORT = process.env.PORT ?? 3001;
 
 import destinos from './routes/destinos.route.mjs';
 import resenas from './routes/resenas.route.mjs';
@@ -31,7 +31,7 @@ app.use(servicios);
 app.use( auth ); //vincula las rutas de auth
 
 
-app.listen( 3000, () =>{
-    console.log( 'servidor corriendo en http://localhost:3000')
+app.listen( PORT, () =>{
+    console.log( `servidor corriendo en http://localhost:${PORT}` );
 });
 

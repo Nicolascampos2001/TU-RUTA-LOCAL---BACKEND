@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 
-import userModel from "../models/users.schema.mjs";
+import userModel from "../schemas/usuarios.schema.mjs";
 import { generateToken } from "../helpers/jwt.helper.mjs";
 
 const loginUser = async (req, res) => {

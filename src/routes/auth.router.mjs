@@ -1,5 +1,5 @@
 import express from 'express'
-import { createUser } from '../controllers/users.controllers.mjs';
+import { createUser } from '../controllers/usuarios.controllers.mjs';
 import { loginUser, reNewToken } from '../controllers/auth.controller.mjs';
 import { authUser } from '../middlewares/auth-user.middleware.mjs';
 
