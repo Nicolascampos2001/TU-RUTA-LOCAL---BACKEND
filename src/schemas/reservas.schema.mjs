@@ -28,6 +28,12 @@ const reservasSchema = new mongoose.Schema({
     type: String,
     enum: ['pendiente', 'confirmada', 'cancelada'],
     default: 'pendiente'
+  },
+  codigo:{
+    type:Number,
+    required: true,
+    unique: true,
+
   }
 } , {
     timestamps: true, 
