@@ -4,12 +4,12 @@ const destinosSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
-        require: [ true, 'el nombre del destino es obligatorio' ]
+        required: [ true, 'el nombre del destino es obligatorio' ]
     },
     urlImage: {
         type: String,
     },
-    feedback: {
+    score: {
         type: Number,
         enum: [1, 2, 3, 4, 5]
     },
