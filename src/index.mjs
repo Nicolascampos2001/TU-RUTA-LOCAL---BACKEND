@@ -1,6 +1,9 @@
 // paso 1: importamos las dependendias (librerias, paquetes)
 // const express = require( 'express' );               //importacion de dependencia usando commonJS
 import express from 'express';
+import cors from 'cors';
+
+
 const PORT = process.env.PORT ?? 3001;
 
 import destinos from './routes/destinos.route.mjs';
@@ -18,6 +21,7 @@ import dbconnect from './config/mongo.config.mjs';    ///importamos la conexion 
 const app = express();
 
 //invocar la configuracion de la conexion a la base de datos
+app.use(cors() );
 app.use(express.json());
 
 dbconnect();
