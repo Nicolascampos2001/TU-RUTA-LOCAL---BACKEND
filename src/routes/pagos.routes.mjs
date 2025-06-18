@@ -6,8 +6,11 @@ const router = express.Router();
 
 
 router.post('/api/pagos', crearPago);
-router.get('/api/pagos',authUser, obtenerPagos) 
-router.get('/api/pagos/:id',authUser,obtenerPagoPorId)
-router.delete('/api/pagos/:id',authUser, borrarPagoPorId)
+
+router.get('/api/pagos', authUser, obtenerPagos) 
+router.get('/api/pagos/:id', authUser, obtenerPagoPorId)
+router.delete('/api/pagos/:id', authUser, borrarPagoPorId)
+
+
 
 export default router;
