@@ -8,6 +8,9 @@ const router = Router();                //invocando el router (preparandolo para
 
 router.post( '/api/destinos', authUser, createDestino );
 router.get( '/api/destinos', getAllDestino);
+
+router.post( '/api/destinos',authUser, createDestino );
+router.get( '/api/destinos',  getAllDestino);
 router.get( '/api/destinos/:id', authUser, getDestinoByid );  //  :id (parametrizar la ruta: creamos una especie de variable)
 router.delete( '/api/destinos/:id', authUser, removeDestinoByid );
 router.patch( '/api/destinos/:id',  authUser, updateProductById );

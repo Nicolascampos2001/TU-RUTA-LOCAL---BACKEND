@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+
 
 // / Definir la estructura de datos (nuestro documento) */
 const userSchema = new mongoose.Schema({
@@ -39,7 +41,11 @@ const userSchema = new mongoose.Schema({
     versionKey: false // contador __v de modificaciones del schema
 });
 
-
+userSchema.pre('save', async function (next) {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
 //define el schema a una propiedad especifica
 const userModel = mongoose.model(
     'users',           //Nombre de la colección a la que voy a asociar

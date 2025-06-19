@@ -25,7 +25,7 @@ const serviciosSchema = new mongoose.Schema({
         type: String,
         default: 'non-category',
         required: [true, 'por favor escoge una categoria'],
-        enum: ['tour', 'safari', 'caminata'],
+        enum: ['tour', 'safari', 'caminata','non-category'],
     },
     urlImage: {
         type: String,
