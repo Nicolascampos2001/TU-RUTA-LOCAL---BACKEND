@@ -6,19 +6,17 @@ const reservasSchema = new mongoose.Schema({
 
   usuario: {
     type: mongoose.Schema.Types.ObjectId, 
-    required: true,
-    ref:'users'
+    ref:'usuarios'
   },
   servicio: {
     type: mongoose.Schema.Types.ObjectId, 
-    required: true,
     ref:'servicios'
   },
   fechaReservada:{
     type: String,
-    required: false //TODO: revisar porque no funciona cuando está en true
+    required: true //TODO: revisar que el tipo sea date
   },
-  personas: {
+  cantidadPersonas: {
     type: Number,
     default: 1,
     min: [1, 'Debe haber al menos una persona'],
@@ -29,7 +27,7 @@ const reservasSchema = new mongoose.Schema({
     enum: ['pendiente', 'confirmada', 'cancelada'],
     default: 'pendiente'
   },
-  codigo:{
+  codigoReserva:{
     type:Number,
     required: true,
     unique: true,

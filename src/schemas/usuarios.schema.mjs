@@ -48,7 +48,7 @@ userSchema.pre('save', async function (next) {
 });
 //define el schema a una propiedad especifica
 const userModel = mongoose.model(
-    'users',           //Nombre de la colección a la que voy a asociar
+    'usuarios',           //Nombre de la colección a la que voy a asociar
     userSchema         //La estructura de datos a la que lo vamosa vincular
 );
 
