@@ -2,7 +2,7 @@ import destinosModel from "../schemas/destinos.schema.mjs";
 
 const createDestino = async (req, res) =>{
     const imputData = req.body;    
-    
+    console.log(imputData)
     try {
         const registereddestino = await destinosModel.create( imputData );
 
