@@ -24,7 +24,7 @@ const pagosSchema = new mongoose.Schema(
             type: String,
             default: "COP",
         },
-        referenciaExterna: {
+        referenciaExterna: {  //TODO: CODIGO (cambiar)
             type: String,
         },
         fechaPago: {

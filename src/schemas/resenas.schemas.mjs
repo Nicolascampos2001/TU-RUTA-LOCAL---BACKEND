@@ -1,18 +1,27 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 // define la estructura 
 const resenaSchema = new mongoose.Schema({
+
     comentario: {
         type: String,
         maxlength: 1000
     },
     calificacion: {
         type: Number,
-        min: 1,
+        min: 0,
         max: 5,
         required: true,
-        default: 1
+    },
+    usuario:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"usuarios"
+    },
+    servicio:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"servicios"
     }
+
     
 }, {
     timestamps: true,

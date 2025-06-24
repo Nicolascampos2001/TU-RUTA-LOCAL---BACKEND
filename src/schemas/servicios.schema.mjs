@@ -35,15 +35,8 @@ const serviciosSchema = new mongoose.Schema({
         enum: ['disponible', 'no-disponible', ],
         default: 'disponible',
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
-        ref: 'users', //nombre del modelo al que hace referencia
-        required: true,
-    },
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
-        ref: 'resenas', //nombre del modelo al que hace referencia
-    }],
+
+
 }, {
     timestamps: true,
     versionKey: false,      // elimina la propiedad __v

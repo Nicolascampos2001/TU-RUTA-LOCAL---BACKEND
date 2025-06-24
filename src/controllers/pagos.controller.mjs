@@ -1,10 +1,15 @@
-import pagosModel from '../pagos-schemas/pagos.schema.mjs';
+import { v4 as uuidv4 } from 'uuid';
+
+import pagosModel from '../schemas/pagos.schema.mjs';
 
 
 
 
 const crearPago =  async (req, res ) => {
     const inputData = req.body;
+    
+    inputData.referenciaExterna = uuidv4().replace(/-/g, '').slice(0, 6);
+    
     try {
         const data = await pagosModel.create(inputData);
         res.json(data);
