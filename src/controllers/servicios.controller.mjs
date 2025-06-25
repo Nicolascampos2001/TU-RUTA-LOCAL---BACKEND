@@ -4,10 +4,10 @@ const crearServicio = async (req, res) => {
     const inputData = req.body; 
 
     try {
-        const registeredProduct = await servicioModel.create(inputData);
+        const registeredServicios = await servicioModel.create(inputData);
 
-    console.log(registeredProduct);
-    res.status(201).json(registeredProduct);
+    console.log(registeredServicios);
+    res.status(201).json(registeredServicios);
 }
     
     catch (error) {

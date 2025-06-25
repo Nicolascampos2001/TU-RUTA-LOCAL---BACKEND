@@ -13,7 +13,7 @@ const reservasSchema = new mongoose.Schema({
     ref:'servicios'
   },
   fechaReservada:{
-    type: String,
+    type: Date,
     required: true //TODO: revisar que el tipo sea date
   },
   cantidadPersonas: {
