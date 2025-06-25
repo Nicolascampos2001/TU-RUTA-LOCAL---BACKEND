@@ -1,7 +1,7 @@
 
 
 import express from 'express';
-import { crearServicio, deleteServicio, getAllServicios, getServiciosById, patchServicio } from '../controllers/product.controller.mjs';
+import { crearServicio, deleteServicio, getAllServicios, getServiciosById, patchServicio } from '../controllers/servicios.controller.mjs';
 import { authUser } from '../middlewares/auth-user.middleware.mjs';
 
 const router = express.Router();
