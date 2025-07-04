@@ -33,7 +33,6 @@ const pagosSchema = new mongoose.Schema(
         servicio: {
             type: mongoose.Schema.Types.ObjectId, // referencia a otro documento
             ref: "servicios", // nombre del modelo al que hace referencia
-            required: true,
         },
     },
     { timestamps: true },
