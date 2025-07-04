@@ -28,7 +28,7 @@ const reservasSchema = new mongoose.Schema({
     default: 'pendiente'
   },
   codigoReserva:{
-    type:Number,
+    type: String,
     required: true,
     unique: true,
 

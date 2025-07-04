@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import reservasModel from "../schemas/reservas.schema.mjs"
 
 const createReservas = async ( req, res ) => {
     const inputData = req.body;
+    inputData.codigoReserva = uuidv4().replace(/-/g, '').slice(0, 6);
 
     try {
 
