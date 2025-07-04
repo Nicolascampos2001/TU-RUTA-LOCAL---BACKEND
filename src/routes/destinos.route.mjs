@@ -6,10 +6,12 @@ const router = Router();                //invocando el router (preparandolo para
 
 //define las rutas de acceso 
 
-router.post( '/api/destinos',authUser, createDestino );
+//router.post( '/api/destinos',authUser, createDestino ); 
+router.post( '/api/destinos', createDestino ); //esta es de pruba 
 router.get( '/api/destinos',  getAllDestino);
 router.get( '/api/destinos/:id', authUser, getDestinoByid );  //  :id (parametrizar la ruta: creamos una especie de variable)
 router.delete( '/api/destinos/:id',authUser, removeDestinoByid );
 router.patch( '/api/destinos/:id', authUser, updateProductById );
+
 
 export default router;                  //exportando todas las rutas de esta entidad para ser usadas en cualquier parte de a aplicacionS
