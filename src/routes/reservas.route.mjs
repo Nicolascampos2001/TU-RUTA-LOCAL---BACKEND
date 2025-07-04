@@ -3,8 +3,7 @@ import { createReservas, deleteReservaById, getReservaById, updateReservaById } 
 import { authUser } from '../middlewares/auth-user.middleware.mjs';
 
 const router = express.Router();
-router.post( '/api/reservas',  authUser, createReservas )
-router.post( '/api/reservas',authUser, createReservas )
+router.post( '/api/reservas' , createReservas )
 router.get( '/api/reservas/:id', getReservaById )
 router.patch( '/api/reservas/:id', authUser, updateReservaById )
 router.delete( '/api/reservas/:id', authUser, deleteReservaById )
