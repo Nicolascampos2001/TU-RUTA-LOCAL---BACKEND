@@ -3,11 +3,12 @@ import mongoose from "mongoose";
 //Define la estructura de datos del documento
 
 const reservasSchema = new mongoose.Schema({
-
+  // Vincula esta propiedad con el Modelo de Usuario
   usuario: {
     type: mongoose.Schema.Types.ObjectId, 
     ref:'usuarios'
   },
+  // Vincula esta propiedad con el Modelo de Servicio
   servicio: {
     type: mongoose.Schema.Types.ObjectId, 
     ref:'servicios'
@@ -19,8 +20,7 @@ const reservasSchema = new mongoose.Schema({
   cantidadPersonas: {
     type: Number,
     default: 1,
-    min: [1, 'Debe haber al menos una persona'],
-    required: true
+    min: [1, 'Debe haber al menos una persona']
   },
   estado: {
     type: String,
@@ -31,7 +31,6 @@ const reservasSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-
   }
 } , {
     timestamps: true, 

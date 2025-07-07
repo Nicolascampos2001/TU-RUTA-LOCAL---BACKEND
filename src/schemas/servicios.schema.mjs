@@ -7,8 +7,7 @@ import mongoose from 'mongoose'; //importando la libreria mongoose
 const serviciosSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'el nombre es obligatorio'],
-        
+        required: [true, 'el nombre es obligatorio']
     },
     description: {
         type: String,
@@ -20,11 +19,9 @@ const serviciosSchema = new mongoose.Schema({
         min: 0,
         default: 0,
     },
-
     category: {
         type: String,
         default: 'non-category',
-        required: [true, 'por favor escoge una categoria'],
         enum: ['tour', 'safari', 'caminata','non-category'],
     },
     urlImage: {
@@ -35,8 +32,6 @@ const serviciosSchema = new mongoose.Schema({
         enum: ['disponible', 'no-disponible', 'por-confirmar' ],
         default: 'disponible',
     },
-
-
 }, {
     timestamps: true,
     versionKey: false,      // elimina la propiedad __v
