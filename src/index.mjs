@@ -18,6 +18,7 @@ import dbconnect from './config/mongo.config.mjs';    ///importamos la conexion 
 
 const app = express();
 
+app.use( cors());
 //invocar la configuracion de la conexion a la base de datos
 app.use ( cors() );
 app.use(express.json());

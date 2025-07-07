@@ -32,7 +32,7 @@ const serviciosSchema = new mongoose.Schema({
     },
     state: {
         type: String,
-        enum: ['disponible', 'no-disponible', ],
+        enum: ['disponible', 'no-disponible', 'por-confirmar' ],
         default: 'disponible',
     },
 
