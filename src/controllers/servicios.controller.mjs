@@ -19,6 +19,7 @@ const crearServicio = async (req, res) => {
 
 const getAllServicios = async (req, res) => {
     try {
+        console.log('Heeeeeey!!')
         // buscar todos los servicios
         const data = await servicioModel.find({});
         res.json(data);
