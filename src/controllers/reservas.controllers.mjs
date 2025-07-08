@@ -20,6 +20,19 @@ const createReservas = async (req, res) => {
   }
 };
 
+const getReservas = async (req, res) => {
+  try {
+    const data = await reservasModel.find({});
+
+    // Si se encuentra la reserva, la retorna correctamente
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ msg: "Error: No se pudo obtener la reservas" });
+  }
+};
 const getReservaById = async (req, res) => {
   const reservaId = req.params.id;
   try {
@@ -90,4 +103,4 @@ const deleteReservaById = async (req, res) => {
 
 //Exponer cada funcionalidad definida en este archivo
 
-export { createReservas, getReservaById, updateReservaById, deleteReservaById };
+export { createReservas, getReservaById, getReservas, updateReservaById, deleteReservaById };
