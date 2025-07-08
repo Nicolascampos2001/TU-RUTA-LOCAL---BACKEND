@@ -22,7 +22,7 @@ const createReservas = async (req, res) => {
 
 const getReservas = async (req, res) => {
   try {
-    const data = await reservasModel.find({});
+    const data = await reservasModel.find({}).populate(['servicio']);
 
     // Si se encuentra la reserva, la retorna correctamente
     res.status(200).json(data);
