@@ -18,7 +18,7 @@ const createDestino = async (req, res) =>{
 
 const getAllDestino = async (req, res) => {
     try {
-        const data = await destinosModel.find({});
+        const data = await destinosModel.find({}).populate(["services"])
         res.json( data );
     } 
     catch (error) {
