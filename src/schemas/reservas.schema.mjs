@@ -11,7 +11,7 @@ const reservasSchema = new mongoose.Schema({
   // Vincula esta propiedad con el Modelo de Servicio
   servicio: {
     type: mongoose.Schema.Types.ObjectId, 
-    ref:'servicios'
+    ref:'Servicio', required: true
   },
   fechaReservada:{
     type: Date,

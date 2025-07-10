@@ -38,7 +38,7 @@ const serviciosSchema = new mongoose.Schema({
 });
 
 //definir el modelo
-const servicioModel  = mongoose.model('servicios', serviciosSchema);
+const servicioModel  = mongoose.model('Servicio', serviciosSchema);
 
 //exportar el modelo
 export default servicioModel;
