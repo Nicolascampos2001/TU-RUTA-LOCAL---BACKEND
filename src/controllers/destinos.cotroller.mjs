@@ -49,7 +49,7 @@ const removeDestinoByid = async (req, res) => {
     const destinoId = req.params.id;
 
     try {
-        const data = await destinosModel.findByIdAndDelete(destinoId)
+        const data = await destinosModel.findByIdAndDelete(destinoId).populate('services');
 
         if( data == null ){
             return res.json({ msg: 'el destino no se encuentra registrado'});
@@ -64,12 +64,12 @@ const removeDestinoByid = async (req, res) => {
     
 }
 
-const updateProductById = (req, res) => {
+const updateProductById = async(req, res) => {
     const destinoId = req.params.id;
     const inputData = req.body;
     
     try {
-        const data = destinosModel.findOne( {destinoId, inputData });
+        const data = await destinosModel.findByIdAndUpdate( destinoId, inputData );
 
         res.json( data );
     } 
