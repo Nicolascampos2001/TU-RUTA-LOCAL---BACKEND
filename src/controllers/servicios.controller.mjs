@@ -75,7 +75,7 @@ const deleteServicio = async (req, res) => {
 const patchServicio = async (req, res) => {
     const serviciosId = req.params.id; // obtenemos el id de la parametrizacion de la ruta 
     const inputData = req.body;  // obtenemos el body de la peticion
-
+    console.log(inputData);
 
 try { 
     const data = await servicioModel.findByIdAndUpdate(serviciosId,inputData, {new: true} );
