@@ -43,7 +43,9 @@ const getReservaById = async (req, res) => {
   const reservaId = req.params.id;
 
   try {
+
     const data = await reservasModel.findById(reservaId).populate("servicio");
+
 
     if (!data) {
       return res.status(404).json({ msg: "Reserva no registrada" });
