@@ -18,7 +18,7 @@ const createDestino = async (req, res) =>{
 
 const getAllDestino = async (req, res) => {
     try {
-        const data = await destinosModel.find({}).populate(["services"])
+        const data = await destinosModel.find({})
         res.json( data );
     } 
     catch (error) {
@@ -31,7 +31,7 @@ const getAllDestino = async (req, res) => {
 const getDestinoByid = async (req, res ) =>{
     const destinosId = req.params.id;
     try {
-        const data = await destinosModel.findOne({_id:destinosId}).populate('services');
+        const data = await destinosModel.findOne({_id:destinosId});
         console.log(destinosId);    
 
         if( data == null ){
@@ -49,7 +49,7 @@ const removeDestinoByid = async (req, res) => {
     const destinoId = req.params.id;
 
     try {
-        const data = await destinosModel.findByIdAndDelete(destinoId).populate('services');
+        const data = await destinosModel.findByIdAndDelete(destinoId)
 
         if( data == null ){
             return res.json({ msg: 'el destino no se encuentra registrado'});
