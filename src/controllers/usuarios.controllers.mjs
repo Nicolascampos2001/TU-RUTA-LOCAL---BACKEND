@@ -35,29 +35,21 @@ const getAllusers = async ( req, res ) => {
     
 }
 
-const getUserById = async ( req, res) => {
-    const userId = req.params.id; 
-    try {
+const getUserById = async (req, res) => {
+  const userId = req.params.id;
 
-        const data = await userModel.findById( userId );
-        // const data = await userModel.findOne( userId );
-        //Verifica si el producto no existe y lanza el respectivo mensaje al cliente
-        if( data == null ) {
-            return res.json( { msg: 'El usuario no se encuentra registrado' });
-        }
-        res.json( data ); 
-
+  try {
+    const data = await userModel.findById(userId);
+    if (!data) {
+      return res.status(404).json({ msg: 'El usuario no se encuentra registrado' });
     }
-    catch ( error ) {
-        console.error ( error )
-        res.json({ msg: 'Error: no se pudo encontrar el producto'});
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: 'Error: no se pudo encontrar el usuario' });
+  }
+};
 
-    }
-
-    
-    
-
-}
 
 const removeProductById = async ( req, res ) => {
     const userId = req.params.id;
