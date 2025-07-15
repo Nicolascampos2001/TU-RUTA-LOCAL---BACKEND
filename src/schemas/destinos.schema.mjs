@@ -9,6 +9,9 @@ const destinosSchema = new mongoose.Schema({
     urlImage: {
         type: String,
     },
+    descripcion:{
+        type: String
+    },
     services: {
         type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
         ref: 'servicios', //nombre del modelo al que hace referencia
