@@ -12,10 +12,10 @@ const destinosSchema = new mongoose.Schema({
     descripcion:{
         type: String
     },
-    // services: {
-    //     type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
-    //     ref: 'servicios', //nombre del modelo al que hace referencia
-    // },
+    services: {
+        type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
+        ref: 'servicios', //nombre del modelo al que hace referencia
+    },
     
     },
     {
