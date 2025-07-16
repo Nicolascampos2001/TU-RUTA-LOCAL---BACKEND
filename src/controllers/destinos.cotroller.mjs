@@ -28,6 +28,19 @@ const getAllDestino = async (req, res) => {
     
 }
 
+const getDestinoDestacado = async (req, res) => {
+    const cantidad = Number( req.params.cantidad ) || 0;
+    try {
+        const data = await destinosModel.find({ destacado: true }).limit( cantidad )
+        res.json( data );
+    } 
+    catch (error) {
+        const data = await destinosModel.find({});
+        res.json({ msg: 'error: no se puede obtener el listado de destinos'});
+    }
+    
+}
+
 const getDestinoByid = async (req, res ) =>{
     const destinosId = req.params.id;
     try {
@@ -87,5 +100,6 @@ export {
     getAllDestino,
     getDestinoByid,
     removeDestinoByid,
-    updateProductById
+    updateProductById,
+    getDestinoDestacado
 }
