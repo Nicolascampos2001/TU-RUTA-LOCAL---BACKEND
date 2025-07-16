@@ -70,6 +70,20 @@ const deleteServicio = async (req, res) => {
         res.status(500).json({msg:'Error: al eliminar el servicio'});
     } 
 
+    try {
+        const data = await servicioModel.findByIdAndDelete(serviciosId);
+        
+        if (data == null) {
+            return res.json({msg:'No se encontro el servicio con ese id'});
+            
+        }
+        res.json(data);
+    }
+    catch (error) {  
+        console.error(error);
+        res.status(500).json({msg:'Error: al eliminar el servicio'});
+    } 
+
 }
 
 const patchServicio = async (req, res) => {

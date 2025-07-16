@@ -28,6 +28,19 @@ const getAllDestino = async (req, res) => {
     
 }
 
+const getDestinosPorIdServicio = async ( req, res ) => {
+    const data = req.params.id;
+
+
+    try {
+        const data = await  destinosModel.find({ serviceId: serviciosId })
+        res.json({ data })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({msg:'Error: al eliminar el servicio'});
+    }
+}
+
 const getDestinoByid = async (req, res ) =>{
     const destinosId = req.params.id;
     try {
@@ -87,5 +100,6 @@ export {
     getAllDestino,
     getDestinoByid,
     removeDestinoByid,
-    updateProductById
+    updateProductById,
+    getDestinosPorIdServicio
 }
