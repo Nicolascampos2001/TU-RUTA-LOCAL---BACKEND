@@ -38,7 +38,20 @@ const getDestinoDestacado = async (req, res) => {
         const data = await destinosModel.find({});
         res.json({ msg: 'error: no se puede obtener el listado de destinos'});
     }
+}
     
+    
+const getDestinosPorIdServicio = async ( req, res ) => {
+    const data = req.params.id;
+
+
+    try {
+        const data = await  destinosModel.find({ serviceId: serviciosId })
+        res.json({ data })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({msg:'Error: al eliminar el servicio'});
+    }
 }
 
 const getDestinoByid = async (req, res ) =>{
@@ -101,5 +114,7 @@ export {
     getDestinoByid,
     removeDestinoByid,
     updateProductById,
-    getDestinoDestacado
+    getDestinoDestacado,
+    getDestinosPorIdServicio
+
 }
