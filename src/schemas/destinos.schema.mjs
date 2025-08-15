@@ -15,7 +15,7 @@ const destinosSchema = new mongoose.Schema({
     destacado: {
         type: Boolean,
         default: false
-    },
+    }, 
     serviceId: {
         type: mongoose.Schema.Types.ObjectId, //referencia a otro documento
         ref: 'servicios', //nombre del modelo al que hace referencia

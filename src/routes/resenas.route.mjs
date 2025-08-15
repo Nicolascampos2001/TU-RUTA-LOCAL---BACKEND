@@ -18,6 +18,6 @@ router.get('/api/resenas/:id',authUser, getRenesasById )
 router.get('/api/resenas/:id', authUser, getRenesasById )
 
 router.patch('/api/resenas/:id', updateResenasById)
-router.delete('/api/resenas/:id', deleteResenaId)
+// router.delete('/api/resenas/:id', deleteResenaId)
 
 export default router;
