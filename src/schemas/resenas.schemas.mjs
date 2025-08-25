@@ -14,10 +14,10 @@ const resenaSchema = new mongoose.Schema({
         maxlength: 1000
     },
     
-    usuario:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"usuarios"
-    },
+    // usuario:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:"usuarios"
+    // },
     // servicio:{
     //     type:mongoose.Schema.Types.ObjectId,
     //     ref:"servicios"
