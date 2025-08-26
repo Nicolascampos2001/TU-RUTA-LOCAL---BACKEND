@@ -6,11 +6,11 @@ const createReservas = async (req, res) => {
   const inputData = req.body;
 
   // Validar que servicio es un ObjectId válido
-  if (!mongoose.Types.ObjectId.isValid(inputData.servicio)) {
-    return res
-      .status(400)
-      .json({ msg: "El servicio seleccionado no es válido." });
-  }
+  // if (!mongoose.Types.ObjectId.isValid(inputData.servicio)) {
+  //   return res
+  //     .status(400)
+  //     .json({ msg: "El servicio seleccionado no es válido." });
+  // }
 
   // Generar código de reserva
   inputData.codigoReserva = uuidv4().replace(/-/g, "").slice(0, 6);
