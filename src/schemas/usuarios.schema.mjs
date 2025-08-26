@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [ true, 'El correo del usuario es obligatorio' ],
-        unique: [ true, 'El correo ya esta registrado. Solo puede registrarse con un unico correo' ]
+        unique: true
     },
     // Definir propiedades, atributos o campos (Documento)
     name:{
@@ -18,9 +18,10 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: [ true, 'El correo del usuario es obligatorio' ],
-        unique: [ true, 'El correo ya esta registrado. Solo puede registrarse con un unico correo' ]
+        unique: true
     },
     password: {
+        // "3342342v"
         type: String,
         trim: true,
         // min: [ 6, 'La contraseña debe tener mínimo 6 caracteres' ],
