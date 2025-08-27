@@ -30,6 +30,18 @@ const getAllResenas = async (req, res) => {
 
 }
 
+const getResenaDestacada = async (req, res) => {
+    const cantidad = Number( req.params.cantidad ) || 0;
+    try {
+        const data = await resenasModel.find({ destacado: true }).limit( cantidad )
+        res.json( data );
+    } 
+    catch (error) {
+        const data = await resenasModel.find({});
+        res.json({ msg: 'error: no se puede obtener el listado de destinos'});
+    }
+}
+
 const getRenesasById = async (req, res) => {
     const resenId = req.params.id;
 
@@ -87,5 +99,6 @@ export {
     getAllResenas,
     getRenesasById,
     updateResenasById,
+    getResenaDestacada,
     deleteResenaId
 }

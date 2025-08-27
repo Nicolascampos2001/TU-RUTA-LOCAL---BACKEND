@@ -13,6 +13,10 @@ const resenaSchema = new mongoose.Schema({
         type: String,
         maxlength: 1000
     },
+    destacado: {
+        type: Boolean,
+        default: false
+    },
     
     // usuario:{
     //     type:mongoose.Schema.Types.ObjectId,
