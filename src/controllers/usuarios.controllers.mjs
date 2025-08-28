@@ -5,18 +5,42 @@ const createUser = async ( req, res ) => {
 
     try {
 
-    const registeredUser = await userModel.create( inputData ); 
-
-    console.log( registeredUser )
-    res.status ( 201 ).json( registeredUser );
+        const registeredUser = await userModel.create( inputData ); 
+        res.status ( 201 ).json( registeredUser );
 
     }
 
     catch ( error ) {
 
-        console.error( error );
-        res.status( 500 ).json( { msg: 'Error no se pudo registrar el usuario' });
+        // Manejo de errores de validación de Mongoose
+        if (error.name === 'ValidationError') {
+            const errors = {};
 
+            // Recorremos cada propiedad del error y organizamos por campo
+            for (const field in error.errors) {
+                errors[field] = error.errors[field].message;
+            }
+
+            return res.status(400).json({
+                message: 'Error de validación.',
+                errors
+            });
+        }
+
+        // Manejo de error por email duplicado (índice único)
+        if (error.code === 11000) {
+            const duplicatedField = Object.keys(error.keyValue)[0];
+
+            return res.status(400).json({
+                message: 'Violación de restricción única.',
+                errors: {
+                    [duplicatedField]: `Ya existe un registro con ese ${duplicatedField}.`
+                }
+            });
+        }
+
+        console.error('Error al registrar usuario:', error);
+        res.status(500).json({ message: 'Error en el servidor.' });
     }
 
 }
