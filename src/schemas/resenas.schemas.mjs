@@ -18,23 +18,14 @@ const resenaSchema = new mongoose.Schema({
         default: false
     },
     
-    // usuario:{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:"usuarios"
-    // },
-    // servicio:{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:"servicios"
-    // }
 
-    
 }, {
     timestamps: true,
     versionKey: false
 });
 
 
-// define el modelo y vincula la estructura de datos de una coleccion
+
 const resenasModel = mongoose.model(
     'resenas',
     resenaSchema
